@@ -1,70 +1,79 @@
 <template>
     <v-footer
-        class="bg-black text-center d-flex flex-column"
+        color="black"
+        class="text-left d-flex flex-column"
+        padded
     >
-        <v-row class="md-pa-12 pa-6 px-8 text-left">
-            <v-col md="4" cols="12" >
-                <h2>Company</h2>
-                <hr class="w-25 bg-green mb-3" style="height: 3px; border:none">
-                <div class="pt-0">
-                    184 Gulshan Avenue
-                    Gulshan 2
-                    Dhaka 1212
-                    Email: ahc.dhaka@dfat.gov.auTelephone: +88 09604 260100
-                </div>
-            </v-col>
-            <v-col md="4" cols="12" class="md-pl-16">
-                <h2>Service Cities</h2>
-                <hr class="w-25 bg-green mb-3" style="height: 3px; border:none">
-                <ul class="ml-3">
-                    <li class="mb-3" v-for="item in ['Dhaka', 'Australia']">{{ item }}</li>
-                </ul>
-            </v-col>
-            <v-col md="4" cols="12">
-                <h2 class="ml-3">Follow Us</h2>
-                <hr class="w-25 bg-green mb-3 ml-3" style="height: 3px; border:none">
-                <div>
-                    <v-btn
-                        v-for="icon in icons"
-                        :key="icon"
-                        :icon="icon.icon"
-                        :href="icon.link"
-                        target="_blank"
-                        variant="text"
-                    ></v-btn>
-                </div>
-            </v-col>
-        </v-row>
+        <v-container>
+            <v-row class="py-6 text-white">
+                <v-col md="4" cols="12" class="mb-4">
+                    <div class="text-h5 mb-2">Company</div>
+                    <v-divider class="mb-4 w-50" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
+                    <div class="subtitle-1">
+                        Phone Number: <a href="tel:+12065498410" class="white--text">206 549 8410</a><br>
+                        Email: <a href="mailto:usachimneyz@gmail.com" class="white--text">usachimneyz@gmail.com</a>
+                    </div>
+                </v-col>
+                <v-col md="4" cols="12" class="mb-4">
+                    <div class="text-h5 mb-2">Service Cities</div>
+                    <v-divider class="mb-4 w-50" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
+                    <ul>
+                        <li class="subtitle-1" v-for="item in ['Seattle', 'Tacoma']" :key="item">{{ item }}</li>
+                    </ul>
+                </v-col>
+                <v-col md="4" cols="12" class="mb-4">
+                    <div class="text-h5 mb-2">Follow Us</div>
+                    <v-divider class="mb-4 w-50" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
+                    <v-row>
+                        <v-col
+                            cols="auto"
+                            v-for="icon in icons"
+                            :key="icon"
+                            class="d-flex justify-center"
+                        >
+                            <v-btn
+                                :icon="icon.icon"
+                                :href="icon.link"
+                                target="_blank"
+                                variant="text"
+                                class="mx-2"
+                            ></v-btn>
+                        </v-col>
+                    </v-row>
+                </v-col>
+            </v-row>
+        </v-container>
         <v-divider></v-divider>
-
-        <div>
-            <p>© Copyright 2010 - {{ new Date().getFullYear() }} - chimney</p>
-        </div>
+        <v-container>
+            <div class="text-center caption py-2">
+                © Copyright {{ new Date().getFullYear() }} - chimney
+            </div>
+        </v-container>
     </v-footer>
 </template>
 
 <script>
 export default {
     name: "Footer",
-    data(){
+    data() {
         return {
             icons: [
                 {
-                    icon : 'mdi-facebook',
-                    link : 'https://www.facebook.com/profile.php?id=61555476044565'
+                    icon: 'mdi-facebook',
+                    link: 'https://www.facebook.com/profile.php?id=61555476044565'
                 },
                 {
-                    icon : 'mdi-twitter',
-                    link : 'https://twitter.com/chimneyzoffical'
+                    icon: 'mdi-twitter',
+                    link: 'https://twitter.com/chimneyzoffical'
                 },
                 {
-                    icon : 'mdi-pinterest',
-                    link : 'https://www.pinterest.com/usachimneyz/?actingBusinessId=1070731017565962468'
+                    icon: 'mdi-pinterest',
+                    link: 'https://www.pinterest.com/usachimneyz/'
                 },
                 {
-                    icon : 'mdi-instagram',
-                    link : 'https://www.instagram.com/chimneyzoffical/'
-                }
+                    icon: 'mdi-instagram',
+                    link: 'https://www.instagram.com/chimneyzoffical/'
+                },
             ],
         }
     }
@@ -72,8 +81,25 @@ export default {
 </script>
 
 <style scoped>
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
 
-    ul li{
-        list-style: none;
-    }
+ul > li {
+    padding: 0.25rem 0;
+}
+
+a.white--text {
+    text-decoration: none;
+    color: white;
+}
+
+a.white--text:hover {
+    text-decoration: underline;
+}
+
+.thin-divider {
+    height: 1px !important; /* Adjust the thickness here */
+}
 </style>
