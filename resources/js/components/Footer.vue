@@ -98,8 +98,4 @@ a.white--text {
 a.white--text:hover {
     text-decoration: underline;
 }
-
-.thin-divider {
-    height: 1px !important; /* Adjust the thickness here */
-}
 </style>

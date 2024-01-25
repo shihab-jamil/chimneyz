@@ -5,9 +5,8 @@
         <v-row class="pa-8 d-flex align-center">
             <v-col md="3" cols="12">
                 <v-select
-                    base-color="black"
                     item-color="green"
-                    label="Select"
+                    label="Select Location"
                     :items="locations"
                     variant="outlined"
                     hide-details="auto"
@@ -15,9 +14,8 @@
             </v-col>
             <v-col md="3" cols="12">
                 <v-select
-                    base-color="black"
                     item-color="green"
-                    label="Select"
+                    label="Select Service"
                     :items="services"
                     variant="outlined"
                     hide-details="auto"
@@ -25,22 +23,20 @@
             </v-col>
             <v-col md="3" cols="12">
                 <v-select
-                    base-color="black"
                     item-color="green"
-                    label="Select"
+                    label="Select Quantity"
                     :items="quantity"
                     variant="outlined"
                     hide-details="auto"
                 ></v-select>
             </v-col>
             <v-col md="3" cols="12" class="text-center">
-                <v-btn variant="outlined" class="align-self-end" @click="dialog = true">
+                <v-btn color="green" dark @click="dialog = true">
                     Schedule Now
                 </v-btn>
             </v-col>
         </v-row>
     </v-sheet>
-
 
     <v-sheet class="md-mx-16 mx-10 my-16" rounded="lg" >
         <div class="d-flex flex-column align-center mb-10">
