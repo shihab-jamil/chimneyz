@@ -5,9 +5,8 @@
         <v-row class="pa-8 d-flex align-center">
             <v-col md="3" cols="12">
                 <v-select
-                    base-color="black"
                     item-color="green"
-                    label="Select"
+                    label="Select Location"
                     :items="locations"
                     variant="outlined"
                     hide-details="auto"
@@ -15,9 +14,8 @@
             </v-col>
             <v-col md="3" cols="12">
                 <v-select
-                    base-color="black"
                     item-color="green"
-                    label="Select"
+                    label="Select Service"
                     :items="services"
                     variant="outlined"
                     hide-details="auto"
@@ -25,22 +23,20 @@
             </v-col>
             <v-col md="3" cols="12">
                 <v-select
-                    base-color="black"
                     item-color="green"
-                    label="Select"
+                    label="Select Quantity"
                     :items="quantity"
                     variant="outlined"
                     hide-details="auto"
                 ></v-select>
             </v-col>
             <v-col md="3" cols="12" class="text-center">
-                <v-btn variant="outlined" class="align-self-end" @click="dialog = true">
+                <v-btn color="green" dark @click="dialog = true">
                     Schedule Now
                 </v-btn>
             </v-col>
         </v-row>
     </v-sheet>
-
 
     <v-sheet class="md-mx-16 mx-10 my-16" rounded="lg" >
         <div class="d-flex flex-column align-center mb-10">
@@ -76,6 +72,7 @@
                             color="green"
                             class="font-weight-bold"
                             variant="text"
+                            @click="item.show = !item.show"
                         >
                             Explore
                         </v-btn>
@@ -283,5 +280,38 @@ export default {
 </script>
 
 <style scoped>
+/* Add hover effect to cards */
+.v-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.v-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Enhance the typography of card titles */
+.v-card-title {
+    font-size: 18px;
+    color: #333; /* Adjust this color to match your branding */
+}
+
+/* Style the 'Explore' button */
+.v-btn {
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.v-btn:hover {
+    background-color: rgba(0,128,0,0.1); /* Adjust hover color to match branding */
+}
+
+/* Adjust divider styles */
+.v-divider {
+    background-color: #4CAF50; /* Replace with your brand's accent color */
+    margin: 4px 0;
+}
 
 </style>
+
