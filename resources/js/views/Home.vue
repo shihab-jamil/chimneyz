@@ -108,7 +108,7 @@
             <v-card-title>
                 Schedule now
             </v-card-title>
-            <Contact />
+            <Contact :contact="contactForm" :visibleActionButton="false" />
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn
@@ -132,7 +132,7 @@
 </template>
 
 <script>
-import Contact from "../components/Contact.vue";
+import Contact from "../components/ContactComponent.vue";
 
 export default {
     name: "Home",
@@ -273,7 +273,10 @@ export default {
                     description: 'At Chimneyz, we understand that structurally sound masonry is the backbone of a healthy chimney. With years of experience in chimney cleaning and maintenance, we have honed our expertise in masonry repair and construction, catering to a variety of needs for both residential and commercial properties. Our clients trust us not only for our exceptional chimney services but also for our artisan-level skills in custom brick and stone projects. Whether enhancing the aesthetic of your home or reinforcing the structural integrity of your commercial property, Chimneyz is your go-to expert.'
                 },
             ],
-            show : false
+            show : false,
+            contactForm : {
+
+            }
         }
     }
 }

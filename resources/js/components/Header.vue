@@ -1,16 +1,19 @@
 <template>
-    <v-app-bar app flat color="black">
+    <v-app-bar app flat color="black" class="px-10">
         <!-- Logo on the left -->
-        <img src="/public/images/ChimneyzLogo.png" class="logo" />
+        <img @click="$router.push('/')" src="/public/images/ChimneyzLogo.png" class="logo cursor-pointer" />
 
         <!-- Menu on the right -->
         <v-spacer></v-spacer>
         <v-btn
             v-if="!$vuetify.display.sm"
-            v-for="link in links"
-            :key="link"
-            :text="link.text"
+            v-for="item in links"
+            :key="item"
+            :text="item.text"
             variant="text"
+            :href="item.link"
+            :active="isActive(item)"
+            :class="{'bg-green' : isActive(item)}"
         ></v-btn>
         <v-app-bar-nav-icon @click.stop="toggleDrawer" class="d-sm-none"></v-app-bar-nav-icon>
     </v-app-bar>
@@ -41,7 +44,7 @@ export default {
                 },
                 {
                     text : "Contact us",
-                    link : "/"
+                    link : "/contact"
                 }
             ],
             drawer : false,
@@ -57,6 +60,12 @@ export default {
         toggleDrawer() {
             this.drawer = !this.drawer;
         },
+        isActive(item){
+           return this.$route.path === item.link
+        }
+    },
+    mounted() {
+        console.log(this.$route.name)
     }
 }
 </script>
@@ -69,5 +78,8 @@ img {
 }
 :deep(.v-navigation-drawer){
     height: 156px !important;
+}
+.active-class{
+    background-color: green !important;
 }
 </style>

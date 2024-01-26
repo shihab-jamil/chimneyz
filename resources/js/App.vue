@@ -4,7 +4,7 @@
 
         <!-- Your main content goes here -->
         <v-main>
-            <Home />
+            <router-view />
         </v-main>
 
         <Footer />
