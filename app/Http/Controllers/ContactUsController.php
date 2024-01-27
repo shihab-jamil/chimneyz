@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RequestContactUs;
+use App\Jobs\SendContactUsMail;
 use App\Models\ContactUs;
 use App\Services\ContactUs\ContactUsService;
 use Exception;
@@ -28,7 +29,7 @@ class ContactUsController extends Controller
         try {
             $contactUsService = new ContactUsService();
             $contactUsService->createContactUs($request);
-
+            dispatch(new SendContactUsMail($request));
             return sendSuccessResponse('Contact Us Created Successfully');
         }catch (Exception $exception) {
             return sendErrorResponse('Something went wrong' . $exception->getMessage());
