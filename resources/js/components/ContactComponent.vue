@@ -1,33 +1,33 @@
 <template>
     <v-row class="pa-8 d-flex align-center">
         <v-form ref="form" class="v-col-12">
-            <v-text-field
-                v-model="contact.name"
-                :rules="['Name Can not be blank']"
-                label="Enter your name"
-                variant="outlined"
+            <v-text-field class="pb-2"
+                          v-model="contact.name"
+                          :rules="[v => !!v || 'Name cannot be blank']"
+                          label="Enter your name"
+                          variant="outlined"
             ></v-text-field>
-            <v-text-field
-                v-model="contact.email"
-                :rules="['email can not be blank']"
-                label="Enter your email"
-                variant="outlined"
+            <v-text-field class="pb-2"
+                          v-model="contact.email"
+                          :rules="[v => !!v || 'email cannot be blank']"
+                          label="Enter your email"
+                          variant="outlined"
             ></v-text-field>
-            <v-text-field
-                v-model="contact.phoneNumber"
-                :rules="['phone number can not be blank']"
-                label="Enter your phone number"
-                variant="outlined"
+            <v-text-field class="pb-2"
+                          v-model="contact.phoneNumber"
+                          :rules="[v => !!v || 'Phone number cannot be blank']"
+                          label="Enter your phone number"
+                          variant="outlined"
             ></v-text-field>
-            <v-text-field
-                v-model="contact.address"
-                :rules="['address can not be blank']"
-                label="Enter your address"
-                variant="outlined"
+            <v-text-field class="pb-2"
+                          v-model="contact.address"
+                          :rules="[v => !!v || 'Address cannot be blank']"
+                          label="Enter your address"
+                          variant="outlined"
             ></v-text-field>
             <v-textarea
                 v-model="contact.message"
-                :rules="['message can not be blank']"
+                :rules="[v => !!v || 'Message cannot be blank']"
                 variant="outlined"
                 auto-grow
                 label="Enter your message here"
