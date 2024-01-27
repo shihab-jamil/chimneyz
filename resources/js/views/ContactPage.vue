@@ -1,5 +1,5 @@
 <template>
-    <v-img src="images/contact.png"  class="mb-10" />
+    <v-img src="images/contact.png" class="mb-10" />
     <v-card class="ma-10 pa-10" rounded="xl" elevation="12">
         <v-row class="flex-column align-center">
             <div class="text-h4 mb-2 text-center font-weight-bold">Contact Us</div>
@@ -19,7 +19,6 @@
 <script>
 import ContactComponent from "../components/ContactComponent.vue";
 import axios from "axios";
-import {useToast} from "vue-toastification";
 export default {
     name: "ContactPage",
     components: {ContactComponent},

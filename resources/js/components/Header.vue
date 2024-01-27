@@ -5,16 +5,36 @@
 
         <!-- Menu on the right -->
         <v-spacer></v-spacer>
-        <v-btn
-            v-if="!$vuetify.display.sm"
+        <v-menu
             v-for="item in links"
-            :key="item"
-            :text="item.text"
-            variant="text"
-            :href="item.link"
-            :active="isActive(item)"
-            :class="{'bg-green' : isActive(item)}"
-        ></v-btn>
+        >
+            <template v-slot:activator="{ props }">
+                <v-btn
+                    v-if="!$vuetify.display.sm"
+                    :key="item"
+                    :text="item.text"
+                    variant="text"
+                    :href="item.link"
+                    :active="isActive(item)"
+                    :class="{'bg-green' : isActive(item)}"
+                    v-bind="props"
+                ></v-btn>
+            </template>
+
+            <v-list
+                v-model:opened="open"
+            >
+                <v-list-group v-for="subItem in item.subMenu" :value="subItem.text">
+                    <v-list-item class="text-green font-weight-bold" :title="subItem.text"></v-list-item>
+                    <hr class="w-75 bg-green" style="height: 5px; border-radius: 100px; margin: 0px auto">
+                    <v-list-item
+                        v-for="subSubItem in subItem.subSubMenu"
+                        :title="subSubItem.text"
+                        :value="subSubItem.text"
+                    ></v-list-item>
+                </v-list-group>
+            </v-list>
+        </v-menu>
         <v-app-bar-nav-icon @click.stop="toggleDrawer" class="d-sm-none"></v-app-bar-nav-icon>
     </v-app-bar>
 
@@ -33,14 +53,47 @@ export default {
     name: "Header",
     data(){
         return {
+            open : ['ABC', 'XYZ'],
             links: [
                 {
-                    text : "Who Are you",
-                    link : "/"
-                },
-                {
                     text : "Services",
-                    link : "/"
+                    link : "",
+                    subMenu : [
+                        {
+                            text : "ABC",
+                            subSubMenu : [
+                                {
+                                    text : 'efg',
+                                    link : ""
+                                },
+                                {
+                                    text : 'hij',
+                                    link : ""
+                                },
+                                {
+                                    text : 'klm',
+                                    link : ""
+                                },
+                            ]
+                        },
+                        {
+                            text : "XYZ",
+                            subSubMenu : [
+                                {
+                                    text : '21312',
+                                    link : ""
+                                },
+                                {
+                                    text : 'sad',
+                                    link : ""
+                                },
+                                {
+                                    text : '214',
+                                    link : ""
+                                },
+                            ]
+                        }
+                    ]
                 },
                 {
                     text : "Contact us",

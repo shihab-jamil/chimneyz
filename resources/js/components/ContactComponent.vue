@@ -3,31 +3,31 @@
         <v-form ref="form" class="v-col-12">
             <v-text-field
                 v-model="contact.name"
-                :rules="['Name Can not be blank']"
+                :rules="[v => !!v || 'Name Can not be blank']"
                 label="Enter your name"
                 variant="outlined"
             ></v-text-field>
             <v-text-field
                 v-model="contact.email"
-                :rules="['email can not be blank']"
+                :rules="[v => !!v || 'email can not be blank']"
                 label="Enter your email"
                 variant="outlined"
             ></v-text-field>
             <v-text-field
                 v-model="contact.phoneNumber"
-                :rules="['phone number can not be blank']"
+                :rules="[v => !!v || 'phone number can not be blank']"
                 label="Enter your phone number"
                 variant="outlined"
             ></v-text-field>
             <v-text-field
                 v-model="contact.address"
-                :rules="['address can not be blank']"
+                :rules="[v => !!v || 'address can not be blank']"
                 label="Enter your address"
                 variant="outlined"
             ></v-text-field>
             <v-textarea
                 v-model="contact.message"
-                :rules="['message can not be blank']"
+                :rules="[v => !!v || 'message can not be blank']"
                 variant="outlined"
                 auto-grow
                 label="Enter your message here"
@@ -36,7 +36,7 @@
                 shaped
             ></v-textarea>
             <v-row v-if="visibleActionButton" class="justify-end px-5">
-                <v-btn type="submit" color="green" class="mt-2" :loading="loading" @click="submitForm">Submit</v-btn>
+                <v-btn color="green" class="mt-2" :loading="loading" @click="submitForm">Submit</v-btn>
             </v-row>
         </v-form>
     </v-row>
@@ -58,6 +58,11 @@ export default {
             type : Boolean,
             required : false
         }
+    },
+    data(){
+      return {
+          validations : {}
+      }
     },
     methods : {
         async submitForm(){
