@@ -8,11 +8,16 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// vue-toastification
+import Toast, {useToast} from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
 
 // Import global CSS
 import '../css/global.css';
 import '@mdi/font/css/materialdesignicons.css'
 import router from "./routes/route.js";
+
+
 
 const vuetify = createVuetify({
     components,
@@ -32,7 +37,11 @@ const vuetify = createVuetify({
     },
 })
 
-const app = createApp(App)
+const app = createApp(App);
 app.use(vuetify)
-    .use(router)
-.mount('#app');
+app.use(router)
+app.use(Toast, {})
+
+app.config.globalProperties.$toast = useToast()
+
+app.mount('#app');

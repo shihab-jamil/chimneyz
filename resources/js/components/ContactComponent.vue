@@ -3,31 +3,31 @@
         <v-form ref="form" class="v-col-12">
             <v-text-field
                 v-model="contact.name"
-                rules="required"
+                :rules="['Name Can not be blank']"
                 label="Enter your name"
                 variant="outlined"
             ></v-text-field>
             <v-text-field
                 v-model="contact.email"
-                rules="required"
+                :rules="['email can not be blank']"
                 label="Enter your email"
                 variant="outlined"
             ></v-text-field>
             <v-text-field
                 v-model="contact.phoneNumber"
-                rules="required"
+                :rules="['phone number can not be blank']"
                 label="Enter your phone number"
                 variant="outlined"
             ></v-text-field>
             <v-text-field
                 v-model="contact.address"
-                rules="required"
+                :rules="['address can not be blank']"
                 label="Enter your address"
                 variant="outlined"
             ></v-text-field>
             <v-textarea
                 v-model="contact.message"
-                rules="required"
+                :rules="['message can not be blank']"
                 variant="outlined"
                 auto-grow
                 label="Enter your message here"

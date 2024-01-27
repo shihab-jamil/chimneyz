@@ -63,9 +63,6 @@ export default {
         isActive(item){
            return this.$route.path === item.link
         }
-    },
-    mounted() {
-        console.log(this.$route.name)
     }
 }
 </script>

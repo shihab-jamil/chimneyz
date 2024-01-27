@@ -1,5 +1,5 @@
 <template>
-    <v-img src="images/contact.png" :aspect-ratio="16 / 9" class="mb-10" />
+    <v-img src="images/contact.png"  class="mb-10" />
     <v-card class="ma-10 pa-10" rounded="xl" elevation="12">
         <v-row class="flex-column align-center">
             <div class="text-h4 mb-2 text-center font-weight-bold">Contact Us</div>
@@ -19,6 +19,7 @@
 <script>
 import ContactComponent from "../components/ContactComponent.vue";
 import axios from "axios";
+import {useToast} from "vue-toastification";
 export default {
     name: "ContactPage",
     components: {ContactComponent},
@@ -38,10 +39,24 @@ export default {
         submitContactForm(){
             this.loading = true;
             axios.post('/api/contact-us', this.contactForm).then(response => {
-                console.log(response)
                 if(response.data.success){
-                    // todo toaster here
-                    this.$router.push({name : 'Home'})
+                    console.log(response)
+                    // Display success message using toast
+                    this.$toast.success("Form submitted successfully!", {
+                        position: "top-right",
+                        timeout: 5000,
+                        closeOnClick: true,
+                        pauseOnFocusLoss: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        draggablePercent: 0.6,
+                        showCloseButtonOnHover: false,
+                        hideProgressBar: false,
+                        closeButton: "button",
+                        icon: true,
+                        rtl: false
+                    });
+                    this.$router.push({ name: 'Home' });
                 }
             }).catch(error => {
                 console.log(error)
