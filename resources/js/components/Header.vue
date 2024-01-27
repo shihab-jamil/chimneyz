@@ -1,7 +1,7 @@
 <template>
     <v-app-bar app flat color="black" class="px-10">
         <!-- Logo on the left -->
-        <img @click="$router.push('/')" src="/public/images/ChimneyzLogo.png" class="logo cursor-pointer" />
+        <img @click="$router.push('/')" src="/public/images/ChimneyzLogo.png" class="logo cursor-pointer"/>
 
         <!-- Menu on the right -->
         <v-spacer></v-spacer>
@@ -51,57 +51,84 @@
 <script>
 export default {
     name: "Header",
-    data(){
+    data() {
         return {
-            open : ['ABC', 'XYZ'],
+            open: ['Chimney Sweep & Repair', 'Fireplace', 'Masonry'],
             links: [
                 {
-                    text : "Services",
-                    link : "",
-                    subMenu : [
+                    text: "Services",
+                    link: "",
+                    subMenu: [
                         {
-                            text : "ABC",
-                            subSubMenu : [
+                            text: "Chimney Sweep & Repair",
+                            subSubMenu: [
                                 {
-                                    text : 'efg',
-                                    link : ""
+                                    text: 'Chimney Cleaner and Repair',
+                                    link: ""
                                 },
                                 {
-                                    text : 'hij',
-                                    link : ""
+                                    text: 'Chimney Inspection',
+                                    link: ""
                                 },
                                 {
-                                    text : 'klm',
-                                    link : ""
+                                    text: 'Chimney Sweep',
+                                    link: ""
+                                }, {
+                                    text: 'Chimney Repair',
+                                    link: ""
                                 },
                             ]
                         },
                         {
-                            text : "XYZ",
-                            subSubMenu : [
+                            text: "Fireplace",
+                            subSubMenu: [
                                 {
-                                    text : '21312',
-                                    link : ""
+                                    text: 'Installing a Fireplace',
+                                    link: ""
                                 },
                                 {
-                                    text : 'sad',
-                                    link : ""
+                                    text: 'Gas Fireplace Repair and Service',
+                                    link: ""
                                 },
                                 {
-                                    text : '214',
-                                    link : ""
+                                    text: 'Pellet Stove Service',
+                                    link: ""
+                                }, {
+                                    text: 'Gas Line Installation Service',
+                                    link: ""
                                 },
+                            ]
+                        },
+                        {
+                            text: "Masonry",
+                            subSubMenu: [
+                                {
+                                    text: 'Repair and Construction of Masonry',
+                                    link: ""
+                                },
+                                {
+                                    text: 'Outdoor Fireplace Building',
+                                    link: ""
+                                },
+                                {
+                                    text: 'Other Construction',
+                                    link: ""
+                                }
                             ]
                         }
                     ]
                 },
                 {
-                    text : "Contact us",
-                    link : "/contact"
+                    text: "Products",
+                    link: ""
+                },
+                {
+                    text: "Contact us",
+                    link: "/contact"
                 }
             ],
-            drawer : false,
-            group : null
+            drawer: false,
+            group: null
         }
     },
     watch: {
@@ -109,12 +136,12 @@ export default {
             this.drawer = false
         },
     },
-    methods : {
+    methods: {
         toggleDrawer() {
             this.drawer = !this.drawer;
         },
-        isActive(item){
-           return this.$route.path === item.link
+        isActive(item) {
+            return this.$route.path === item.link
         }
     }
 }
@@ -126,10 +153,12 @@ img {
     width: 120px;
     padding-left: 7px;
 }
-:deep(.v-navigation-drawer){
+
+:deep(.v-navigation-drawer) {
     height: 156px !important;
 }
-.active-class{
+
+.active-class {
     background-color: green !important;
 }
 </style>
