@@ -93,7 +93,12 @@ export default {
                                 {
                                     text: 'Pellet Stove Service',
                                     params: "stove"
-                                }, {
+                                },
+                                {
+                                    text: 'Installing a Fireplace Chimney',
+                                    params: "fireplace_chimney"
+                                },
+                                {
                                     text: 'Gas Line Installation Service',
                                     params: "line_installation"
                                 },
