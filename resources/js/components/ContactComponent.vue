@@ -9,7 +9,7 @@
             ></v-text-field>
             <v-text-field
                 v-model="contact.email"
-                :rules="[v => !!v || 'email can not be blank']"
+                :rules="[v => !!v || 'A valid email is required']"
                 label="Enter your email"
                 variant="outlined"
             ></v-text-field>
@@ -57,19 +57,34 @@ export default {
         loading : {
             type : Boolean,
             required : false
-        }
+        },
+        shouldValidate:{
+            type:Boolean,
+            required : false,
+        },
     },
     data(){
       return {
           validations : {}
       }
     },
+    watch : {
+        shouldValidate : {
+            handler(newVal){
+                if(newVal){
+                    this.submitForm()
+                }
+            }
+        }
+    },
     methods : {
         async submitForm(){
             const { valid } = await this.$refs.form.validate()
 
             if (valid){
-                this.$emit("submit")
+                this.$emit("submit", true)
+            }else{
+                this.$emit("submit", false)
             }
         },
     }

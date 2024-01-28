@@ -25,12 +25,12 @@
                 v-model:opened="open"
             >
                 <v-list-group v-for="subItem in item.subMenu" :value="subItem.text">
-                    <v-list-item class="text-green font-weight-bold" :title="subItem.text"></v-list-item>
-                    <hr class="w-75 bg-green" style="height: 5px; border-radius: 100px; margin: 0px auto">
+                    <v-list-item v-if="subItem.text" class="text-green font-weight-bold" :title="subItem.text"></v-list-item>
+                    <hr v-if="subItem.text" class="w-75 bg-green" style="height: 5px; border-radius: 100px; margin: 0px auto">
                     <v-list-item
                         v-for="subSubItem in subItem.subSubMenu"
                         :title="subSubItem.text"
-                        @click="$router.push({name : 'ServiceDetails', params : {type : subSubItem.params}})"
+                        @click="$router.push({name : item.path , params : {type : subSubItem.params}})"
                     ></v-list-item>
                 </v-list-group>
             </v-list>
@@ -53,11 +53,12 @@ export default {
     name: "Header",
     data() {
         return {
-            open: ['Chimney Sweep & Repair', 'Fireplace', 'Masonry'],
+            open: ['Chimney Sweep & Repair', 'Fireplace', 'Masonry', ""],
             links: [
                 {
                     text: "Services",
                     link: "",
+                    path : "ServiceDetails",
                     subMenu: [
                         {
                             text: "Chimney Sweep & Repair",
@@ -125,7 +126,35 @@ export default {
                 },
                 {
                     text: "Products",
-                    link: ""
+                    path : "ProductDetails",
+                    link: "",
+                    subMenu: [
+                        {
+                            text: "",
+                            subSubMenu: [
+                                {
+                                    text: 'Chimney Caps',
+                                    params: "clean_repair"
+                                },
+                                {
+                                    text: 'Gas Log Sets',
+                                    params: "inspection"
+                                },
+                                {
+                                    text: 'Gas Fireplace Insert',
+                                    params: "sweep"
+                                },
+                                {
+                                    text: 'Liners',
+                                    params: "repair"
+                                },
+                                {
+                                    text: 'Wood Burning Fireplace Inserts',
+                                    params: "repair"
+                                },
+                            ]
+                        }
+                    ]
                 },
                 {
                     text: "Contact us",
@@ -146,9 +175,9 @@ export default {
             this.drawer = !this.drawer;
         },
         isActive(item) {
-            return this.$route.path === item.link
+            return this.$route.path === item.link || this.$route.name === item.path
         }
-    }
+    },
 }
 </script>
 

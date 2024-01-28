@@ -1,49 +1,55 @@
 <template>
     <v-sheet elevation="12" class="md-mx-16 mx-10" rounded="lg" color="green-lighten-5">
-        <v-row class="pa-8 d-flex align-center">
-            <v-col md="4" lg="3" cols="12">
-                <v-select
-                    v-model="contactForm.location"
-                    item-color="green"
-                    label="Select Location"
-                    :items="locations"
-                    variant="outlined"
-                    hide-details="auto"
-                ></v-select>
-            </v-col>
-            <v-col md="4" lg="3" cols="12">
-                <v-select
-                    v-model="contactForm.service"
-                    item-color="green"
-                    label="Select Service"
-                    :items="services"
-                    variant="outlined"
-                    hide-details="auto"
-                ></v-select>
-            </v-col>
-            <v-col md="4" lg="3" cols="12">
-                <v-select
-                    v-model="contactForm.quantity"
-                    item-color="green"
-                    label="Select Quantity"
-                    :items="quantity"
-                    variant="outlined"
-                    hide-details="auto"
-                ></v-select>
-            </v-col>
-            <v-col md="12" lg="3" cols="12" class="d-flex align-center justify-center px-md-10 px-3">
-                <v-btn color="green" dark @click="dialog = true" size="large" class="text-wrap">
-                    Schedule Now
-                    <v-fade-transition v-if="showCalculation" leave-absolute>
-                         <span class="ml-1" :key="value">
-                             for
-                             <strong >{{value}}</strong>
-                             $
-                        </span>
-                    </v-fade-transition>
-                </v-btn>
-            </v-col>
+        <v-form ref="scheduleForm" >
+            <v-row class="pa-8 d-flex align-center">
+                <v-col md="4" lg="3" cols="12">
+                    <v-select
+                        v-model="contactForm.location"
+                        item-color="green"
+                        label="Select Location"
+                        :rules="[v => !!v || 'Location Can not be blank']"
+                        :items="locations"
+                        variant="outlined"
+                        hide-details="auto"
+                    ></v-select>
+                </v-col>
+                <v-col md="4" lg="3" cols="12">
+                    <v-select
+                        v-model="contactForm.service"
+                        item-color="green"
+                        label="Select Service"
+                        :disabled="isSelectedService"
+                        :rules="[v => !!v || 'Service Can not be blank']"
+                        :items="services"
+                        variant="outlined"
+                        hide-details="auto"
+                    ></v-select>
+                </v-col>
+                <v-col md="4" lg="3" cols="12">
+                    <v-select
+                        v-model="contactForm.quantity"
+                        item-color="green"
+                        label="Select Quantity"
+                        :rules="[v => !!v || 'Quantity Can not be blank']"
+                        :items="quantity"
+                        variant="outlined"
+                        hide-details="auto"
+                    ></v-select>
+                </v-col>
+                <v-col md="12" lg="3" cols="12" class="d-flex align-center justify-center px-md-10 px-3">
+                    <v-btn color="green" dark @click="submitForm" size="large" class="text-wrap">
+                        Schedule Now
+                        <v-fade-transition v-if="showCalculation" leave-absolute>
+                             <span class="ml-1" :key="value">
+                                 for
+                                 <strong >{{value}}</strong>
+                                 $
+                            </span>
+                        </v-fade-transition>
+                    </v-btn>
+                </v-col>
         </v-row>
+        </v-form>
     </v-sheet>
 
     <v-dialog
@@ -55,7 +61,12 @@
             <v-card-title>
                 Schedule now
             </v-card-title>
-            <Contact :contact="contactForm" :visibleActionButton="false" />
+            <Contact
+                :contact="contactForm"
+                :visibleActionButton="false"
+                :should-validate="validateContactForm"
+                @submit="handleContactForm"
+            />
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn
@@ -68,7 +79,8 @@
                 <v-btn
                     color="green-darken-1"
                     variant="text"
-                    @click="dialog = false"
+                    :loading="validateContactForm"
+                    @click="validateContactForm = true"
                 >
                     Submit
                 </v-btn>
@@ -80,6 +92,7 @@
 
 <script>
 import Contact from "./ContactComponent.vue";
+import axios from "axios";
 
 export default {
     name: "ScheduleNowComponent",
@@ -249,7 +262,22 @@ export default {
                 'Other Construction',
                 'Gas Fireplace Repair and Service',
                 'Gas Fireplace Cleaning'
-            ]
+            ],
+            serviceMap : {
+                clean_repair : "Chimney Cleaner and Repair",
+                inspection : "Chimney Inspection",
+                sweep : "Chimney Sweep",
+                repair : "Chimney Repair",
+                fireplace : "Installing a Fireplace",
+                fireplace_repair : "Gas Fireplace Repair and Service",
+                fireplace_chimney : "Gas Fireplace Cleaning",
+                stove : "Pellet Stove Service",
+                line_installation : "Gas Line Installation Service",
+                masonry : "Repair and Construction of Masonry",
+                building : "Outdoor Fireplace Building",
+                construction : "Other Construction",
+            },
+            validateContactForm : false,
         }
     },
     watch : {
@@ -267,6 +295,48 @@ export default {
                     this.showCalculation = false
                 }
             }
+        }
+    },
+    computed : {
+      isSelectedService(){
+        if(this.$route.params?.type){
+            return !!this.serviceMap[this.$route.params.type]
+        }
+      }
+    },
+    methods: {
+        async submitForm(){
+            const { valid } = await this.$refs.scheduleForm.validate()
+
+            if (valid){
+                this.dialog = true
+            }
+        },
+        handleContactForm(value){
+            if(!value){
+                this.validateContactForm = false
+                return
+            }
+            axios.post('/api/make-schedule', this.contactForm)
+                .then(response => {
+                    if(response.data.success) {
+                        this.$toast.success("Schedule has been created")
+                    }else{
+                        this.$toast.error("Something went wrong")
+                    }
+                }).catch(error => {
+                    console.log(error)
+            }).finally(() => {
+                this.validateContactForm = false
+                this.dialog = false
+            })
+
+
+        }
+    },
+    mounted() {
+        if(this.isSelectedService){
+            this.contactForm.service = this.serviceMap[this.$route.params.type]
         }
     }
 }

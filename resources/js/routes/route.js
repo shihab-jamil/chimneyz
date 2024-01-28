@@ -7,6 +7,7 @@ const routes = [
     { path: '/', name : 'Home' , component: Home },
     { path: '/contact', name: 'Contact', component: ContactPage },
     { path: '/service-details/:type', name: 'ServiceDetails', component: ServiceDetailsPage, props : true },
+    { path: '/product-details/:type', name: 'ProductDetails', component: ServiceDetailsPage, props : true },
 ]
 
 

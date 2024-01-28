@@ -17,6 +17,7 @@ import Footer from "./components/Footer.vue";
 import Home from "./views/Home.vue";
 
 export default {
+    name: "App",
     components: {Home, Footer, Header},
     data() {
         return {

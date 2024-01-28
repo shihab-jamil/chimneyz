@@ -13,10 +13,34 @@
 
 <script>
 import CleanerAndRepairComponent from "../../components/CleanerAndRepairComponent.vue";
+import ConstructionComponent from "../../components/ConstructionComponent.vue";
+import InspectionComponent from "../../components/InspectionComponent.vue";
+import SweepComponent from "../../components/SweepComponent.vue";
+import RepairComponent from "../../components/RepairComponent.vue";
+import FireplaceComponent from "../../components/FireplaceComponent.vue";
+import FireplaceRepairComponent from "../../components/FireplaceRepairComponent.vue";
+import FireplaceChimneyComponent from "../../components/FireplaceChimneyComponent.vue";
+import StoveComponent from "../../components/StoveComponent.vue";
+import GasLineComponent from "../../components/GasLineComponent.vue";
+import BuildingComponent from "../../components/BuildingComponent.vue";
+import OtherConstructionComponent from "../../components/OtherConstructionComponent.vue";
 
 export default {
     name: "ServiceDetails",
-    components: {CleanerAndRepairComponent},
+    components: {
+        CleanerAndRepairComponent,
+        ConstructionComponent,
+        InspectionComponent,
+        SweepComponent,
+        RepairComponent,
+        FireplaceComponent,
+        FireplaceRepairComponent,
+        FireplaceChimneyComponent,
+        StoveComponent,
+        GasLineComponent,
+        BuildingComponent,
+        OtherConstructionComponent,
+    },
     props : ['type'],
     data(){
         return {
@@ -32,7 +56,7 @@ export default {
                 line_installation : "GasLineComponent",
                 masonry : "ConstructionComponent",
                 building : "BuildingComponent",
-                construction : "ConstructionComponent",
+                construction : "OtherConstructionComponent",
             }
         }
     },
@@ -40,7 +64,7 @@ export default {
         generateComponent(){
             return  this.serviceMap[this.type]
         }
-    }
+    },
 }
 </script>
 

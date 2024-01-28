@@ -38,10 +38,9 @@ const vuetify = createVuetify({
 })
 
 const app = createApp(App);
-app.use(vuetify)
 app.use(router)
+app.use(vuetify)
 app.use(Toast, {})
-
 app.config.globalProperties.$toast = useToast()
 
 app.mount('#app');

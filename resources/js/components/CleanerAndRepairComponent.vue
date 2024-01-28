@@ -57,15 +57,13 @@
                     neque sequi sit. Beatae fuga ipsa maxime nulla quasi voluptatem.</p>
                 <br>
                 <p class="text-justify">Here’s a look at our gas fireplace installation options:</p>
-                <v-list lines="two">
+                <v-list lines="lines">
                     <v-list-item
                         v-for="n in 3"
                         :key="n"
                     >
-                        <v-list-item-content>
-                            &bull; <strong>{{ 'Item ' + n }}</strong> : Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit
-                        </v-list-item-content>
+                        &bull; <strong>{{ 'Item ' + n }}</strong> : Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit
                     </v-list-item>
                 </v-list>
             </div>
@@ -88,15 +86,13 @@
                     neque sequi sit. Beatae fuga ipsa maxime nulla quasi voluptatem.</p>
                 <br>
                 <p class="text-justify">Here’s a look at our gas fireplace installation options:</p>
-                <v-list lines="two">
+                <v-list lines="lines">
                     <v-list-item
                         v-for="n in 3"
                         :key="n"
                     >
-                        <v-list-item-content>
-                            &bull; <strong>{{ 'Item ' + n }}</strong> : Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit
-                        </v-list-item-content>
+                        &bull; <strong>{{ 'Item ' + n }}</strong> : Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit
                     </v-list-item>
                 </v-list>
             </div>
