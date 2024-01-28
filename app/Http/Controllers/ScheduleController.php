@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RequestSchedule;
+use App\Jobs\SendScheduleMail;
 use App\Services\Schedule\ScheduleService;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -14,6 +15,7 @@ class ScheduleController extends Controller
         try {
             $scheduleService = new ScheduleService();
             $scheduleData = $scheduleService->makeSchedule($request);
+            dispatch(new SendScheduleMail($scheduleData));
 
             return sendSuccessResponse('Schedule Set Successfully', 200, $scheduleData);
         }catch (Exception $exception) {
