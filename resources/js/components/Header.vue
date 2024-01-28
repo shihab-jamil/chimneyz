@@ -30,7 +30,7 @@
                     <v-list-item
                         v-for="subSubItem in subItem.subSubMenu"
                         :title="subSubItem.text"
-                        :value="subSubItem.text"
+                        @click="$router.push({name : 'ServiceDetails', params : {type : subSubItem.params}})"
                     ></v-list-item>
                 </v-list-group>
             </v-list>
@@ -64,18 +64,18 @@ export default {
                             subSubMenu: [
                                 {
                                     text: 'Chimney Cleaner and Repair',
-                                    link: ""
+                                    params: "clean_repair"
                                 },
                                 {
                                     text: 'Chimney Inspection',
-                                    link: ""
+                                    params: "inspection"
                                 },
                                 {
                                     text: 'Chimney Sweep',
-                                    link: ""
+                                    params: "sweep"
                                 }, {
                                     text: 'Chimney Repair',
-                                    link: ""
+                                    params: "repair"
                                 },
                             ]
                         },
@@ -84,18 +84,18 @@ export default {
                             subSubMenu: [
                                 {
                                     text: 'Installing a Fireplace',
-                                    link: ""
+                                    params: "fireplace"
                                 },
                                 {
                                     text: 'Gas Fireplace Repair and Service',
-                                    link: ""
+                                    params: "fireplace_repair"
                                 },
                                 {
                                     text: 'Pellet Stove Service',
-                                    link: ""
+                                    params: "stove"
                                 }, {
                                     text: 'Gas Line Installation Service',
-                                    link: ""
+                                    params: "line_installation"
                                 },
                             ]
                         },
@@ -104,15 +104,15 @@ export default {
                             subSubMenu: [
                                 {
                                     text: 'Repair and Construction of Masonry',
-                                    link: ""
+                                    params: "masonry"
                                 },
                                 {
                                     text: 'Outdoor Fireplace Building',
-                                    link: ""
+                                    params: "building"
                                 },
                                 {
                                     text: 'Other Construction',
-                                    link: ""
+                                    params: "construction"
                                 }
                             ]
                         }

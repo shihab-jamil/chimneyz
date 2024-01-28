@@ -1,42 +1,7 @@
 <template>
     <v-img src="images/ChineyBanner2.jpg" class="mb-10" />
 
-    <v-sheet elevation="12" class="md-mx-16 mx-10" rounded="lg" color="green-lighten-5">
-        <v-row class="pa-8 d-flex align-center">
-            <v-col md="3" cols="12">
-                <v-select
-                    item-color="green"
-                    label="Select Location"
-                    :items="locations"
-                    variant="outlined"
-                    hide-details="auto"
-                ></v-select>
-            </v-col>
-            <v-col md="3" cols="12">
-                <v-select
-                    item-color="green"
-                    label="Select Service"
-                    :items="services"
-                    variant="outlined"
-                    hide-details="auto"
-                ></v-select>
-            </v-col>
-            <v-col md="3" cols="12">
-                <v-select
-                    item-color="green"
-                    label="Select Quantity"
-                    :items="quantity"
-                    variant="outlined"
-                    hide-details="auto"
-                ></v-select>
-            </v-col>
-            <v-col md="3" cols="12" class="text-center">
-                <v-btn color="green" dark @click="dialog = true">
-                    Schedule Now
-                </v-btn>
-            </v-col>
-        </v-row>
-    </v-sheet>
+    <ScheduleNowComponent />
 
     <v-sheet class="md-mx-16 mx-10 my-16" rounded="lg" >
         <div class="d-flex flex-column align-center mb-10">
@@ -99,44 +64,17 @@
         </v-row>
     </v-sheet>
 
-    <v-dialog
-        v-model="dialog"
-        persistent
-        width="600px"
-    >
-        <v-card>
-            <v-card-title>
-                Schedule now
-            </v-card-title>
-            <Contact :contact="contactForm" :visibleActionButton="false" />
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                    color="green-darken-1"
-                    variant="text"
-                    @click="dialog = false"
-                >
-                    Cancel
-                </v-btn>
-                <v-btn
-                    color="green-darken-1"
-                    variant="text"
-                    @click="dialog = false"
-                >
-                    Submit
-                </v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-dialog>
+
 
 </template>
 
 <script>
 import Contact from "../components/ContactComponent.vue";
+import ScheduleNowComponent from "../components/ScheduleNowComponent.vue";
 
 export default {
     name: "Home",
-    components: {Contact},
+    components: {ScheduleNowComponent, Contact},
     data(){
         return{
             dialog : false,
@@ -274,9 +212,6 @@ export default {
                 },
             ],
             show : false,
-            contactForm : {
-
-            }
         }
     }
 }

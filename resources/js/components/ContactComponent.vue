@@ -1,5 +1,5 @@
 <template>
-    <v-row class="pa-8 d-flex align-center">
+    <v-row class="pa-md-4 d-flex align-center" :class="{'pa-md-8' : !visibleActionButton}">
         <v-form ref="form" class="v-col-12">
             <v-text-field
                 v-model="contact.name"
@@ -35,7 +35,7 @@
                 row-height="30"
                 shaped
             ></v-textarea>
-            <v-row v-if="visibleActionButton" class="justify-end px-5">
+            <v-row v-if="visibleActionButton" class="justify-end px-3 my-3">
                 <v-btn color="green" class="mt-2" :loading="loading" @click="submitForm">Submit</v-btn>
             </v-row>
         </v-form>
