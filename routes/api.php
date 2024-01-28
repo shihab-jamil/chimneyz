@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,8 @@ Route::get('contact-us', [ContactUsController::class, 'getContactUs']);
 Route::post('contact-us', [ContactUsController::class, 'createContactUs']);
 Route::put('contact-us/{contactUs}', [ContactUsController::class, 'updateContactUs']);
 Route::delete('contact-us/{contactUs}', [ContactUsController::class, 'deleteContactUs']);
+
+/**
+ * Schedule
+ */
+Route::post('make-schedule', [ScheduleController::class, 'makeSchedule']);
