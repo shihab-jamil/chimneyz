@@ -42,7 +42,7 @@
         </v-col>
     </v-row>
     <br>
-    <v-row class="pa-md-16">
+    <v-row class="pa-md-16 my-md-0 my-10">
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
                 <h1>Why Choose Us?</h1>
