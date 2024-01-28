@@ -1,7 +1,7 @@
 <template>
     <v-card>
         <v-img
-            src="../images/ChineyBanner2.jpg"
+            src="../images/service_details.jpeg"
             class="d-flex align-center justify-center"
             gradient="to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9)"
         >
@@ -26,7 +26,7 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/contact-us-sales.png" :aspect-ratio="9/4" rounded="xl"/>
+            <v-img src="../images/chimney_service.png" :aspect-ratio="9/4" rounded="xl"/>
         </v-col>
     </v-row>
     <div class="px-6">
@@ -35,7 +35,7 @@
 
     <v-row class="pa-md-16">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/contact-us-sales.png" :aspect-ratio="9/4" rounded="xl"/>
+            <v-img src="../images/sweep.png" :aspect-ratio="9/4" rounded="xl"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
@@ -80,12 +80,12 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/contact-us-sales.png" :aspect-ratio="9/4" rounded="xl"/>
+            <v-img src="../images/sweep_2.png" :aspect-ratio="9/4" rounded="xl"/>
         </v-col>
     </v-row>
     <v-row class="pa-md-16">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/contact-us-sales.png" :aspect-ratio="9/4" rounded="xl"/>
+            <v-img src="../images/installation.png" :aspect-ratio="9/4" rounded="xl"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
@@ -119,7 +119,7 @@
                 <v-expansion-panel
                     v-for="i in 3"
                     :key="i"
-                    title="Item"
+                    title="Item" class="font-weight-bold"
                     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                 ></v-expansion-panel>
             </v-expansion-panels>
