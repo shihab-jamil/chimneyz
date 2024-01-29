@@ -66,7 +66,7 @@
             <p><strong>Quantity:</strong> {{ $info->service_quantity }}</p>
             <p><strong>Location:</strong> {{ $info->location }}</p>
             <p><strong>Schedule Made at :</strong> {{ \Carbon\Carbon::parse($info->created_at)->format('jS F, Y') }}</p>
-            <p><strong>Total Cost:</strong> {{ $info->service_cost }}</p>
+            <p><strong>Total Cost:</strong> {{ $info->service_cost }}$</p>
         </div>
 
         <p><strong>Contact Information:</strong></p>

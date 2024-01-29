@@ -1,4 +1,7 @@
 <template>
+    <div class="px-md-6 py-md-15 my-10">
+        <ScheduleNowComponent/>
+    </div>
     <v-row class="pa-md-16 my-md-0 my-10">
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
@@ -16,16 +19,13 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/inspection.jpg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/inspection.jpg" :aspect-ratio="9/5"/>
         </v-col>
     </v-row>
-    <div class="px-md-6">
-        <ScheduleNowComponent/>
-    </div>
 
     <v-row class="pa-md-16 my-md-0 my-10">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-             <v-img src="../images/join_us.jpg" :aspect-ratio="9/5" rounded="xl"/>
+             <v-img src="../images/join_us.jpg" :aspect-ratio="9/5"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
@@ -60,12 +60,12 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/choose.jpeg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/choose.jpeg" :aspect-ratio="9/5"/>
         </v-col>
     </v-row>
     <v-row class="pa-md-16">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/installation.png" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/installation.png" :aspect-ratio="9/5"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">

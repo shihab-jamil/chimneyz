@@ -1,7 +1,7 @@
 <template>
     <v-row class="pa-md-16 my-md-0 my-10">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/gas_fireplace_insert_1.jpg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/gas_fireplace_insert_1.jpg" :aspect-ratio="9/5"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
@@ -43,12 +43,12 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/rediant_gas.jpg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/rediant_gas.jpg" :aspect-ratio="9/5"/>
         </v-col>
     </v-row>
     <v-row class="pa-md-16 my-md-0 my-10">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/radient_gas_large.jpg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/radient_gas_large.jpg" :aspect-ratio="9/5"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
@@ -104,12 +104,12 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/energy_large_gas.jpg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/energy_large_gas.jpg" :aspect-ratio="9/5"/>
         </v-col>
     </v-row>
     <v-row class="pa-md-16 my-md-0 my-10">
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/energy_medium_gas.jpg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/energy_medium_gas.jpg" :aspect-ratio="9/5"/>
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">

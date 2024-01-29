@@ -18,7 +18,6 @@
                         v-model="contactForm.service"
                         item-color="green"
                         label="Select Service"
-                        :disabled="isSelectedService"
                         :rules="[v => !!v || 'Service Can not be blank']"
                         :items="services"
                         variant="outlined"
