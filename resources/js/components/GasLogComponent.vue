@@ -147,16 +147,16 @@ export default {
         return {
             items: [
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+                    src: '../images/gas_log_1.jpg',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+                    src: '../images/gas_log_2.webp',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+                    src: '../images/gas_log_3.jpg',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+                    src: '../images/gas_log_4.jpg',
                 },
             ],
             determine_size: [
