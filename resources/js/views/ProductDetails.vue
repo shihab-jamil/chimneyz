@@ -24,7 +24,7 @@ export default {
                 caps : "ChimneyCapsComponent",
                 log : "GasLogComponent",
                 fireplace : "GasFireplaceInsertComponent",
-                liners : "RepairComponent",
+                liners : "LinerComponent",
                 wood : "WoodBurningFireplaceInsertComponent",
             }
         }

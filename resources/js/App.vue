@@ -30,6 +30,11 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style>
+:deep(.v-img__img){
+    border-radius: 80px !important;
+}
+.v-img__img--contain{
+    object-fit: unset !important;
+}
 </style>
