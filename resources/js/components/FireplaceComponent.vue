@@ -16,7 +16,7 @@
             </div>
         </v-col>
         <v-col md="6" cols="12" class="d-flex justify-end align-center">
-            <v-img src="../images/fireplace_installation.jpeg" :aspect-ratio="9/5" rounded="xl"/>
+            <v-img src="../images/fireplace_installation.jpeg" :aspect-ratio="9/5" />
         </v-col>
     </v-row>
     <div class="px-md-6">

@@ -14,7 +14,7 @@
                     :key="item"
                     :text="item.text"
                     variant="text"
-                    :href="item.link"
+                    @click="goToRoute(item)"
                     :active="isActive(item)"
                     :class="{'bg-green' : isActive(item)}"
                     v-bind="props"
@@ -22,6 +22,7 @@
             </template>
 
             <v-list
+                v-if="item.subMenu"
                 v-model:opened="open"
             >
                 <v-list-group v-for="subItem in item.subMenu" :value="subItem.text">
@@ -40,10 +41,44 @@
 
     <!-- Drawer for mobile -->
     <v-navigation-drawer v-model="drawer" app location="top" color="black">
-        <v-list variant="tonal">
-            <v-list-item class="text-green" v-for="(item, index) in links" :key="index">
-                <v-list-item-title>{{ item.text }}</v-list-item-title>
-            </v-list-item>
+        <v-list v-model:opened="openMobile">
+            <v-list-group
+                v-for="item in links"
+                :key="item"
+                :value="item.text"
+            >
+                <template v-if="item.subMenu" v-slot:activator="{ props }">
+                    <v-list-item
+                        v-bind="props"
+                        :title="item.text"
+                    ></v-list-item>
+                </template>
+
+                <v-list-group
+                    v-for="subItem in item.subMenu"
+                    :key="subItem"
+                    :value="subItem.text"
+                >
+                    <template v-slot:activator="{ props }">
+                        <v-list-item
+                            v-if="subItem.text"
+                            v-bind="props"
+                            :title="subItem.text"
+                        ></v-list-item>
+                    </template>
+
+                    <v-list-item
+                        v-for="subSubItem in subItem.subSubMenu"
+                        :key="subSubItem"
+                        :title="subSubItem.text"
+                        @click="$router.push({name : item.path , params : {type : subSubItem.params}})"
+                    />
+                </v-list-group>
+            </v-list-group>
+            <v-list-item
+                @click="$router.push({name : 'Contact'})"
+                title="Contact"
+            ></v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -54,6 +89,7 @@ export default {
     data() {
         return {
             open: ['Chimney Sweep & Repair', 'Fireplace', 'Masonry', ""],
+            openMobile : [""],
             links: [
                 {
                     text: "Services",
@@ -134,23 +170,23 @@ export default {
                             subSubMenu: [
                                 {
                                     text: 'Chimney Caps',
-                                    params: "clean_repair"
+                                    params: "caps"
                                 },
                                 {
                                     text: 'Gas Log Sets',
-                                    params: "inspection"
+                                    params: "log"
                                 },
                                 {
                                     text: 'Gas Fireplace Insert',
-                                    params: "sweep"
+                                    params: "fireplace"
                                 },
                                 {
                                     text: 'Liners',
-                                    params: "repair"
+                                    params: "liners"
                                 },
                                 {
                                     text: 'Wood Burning Fireplace Inserts',
-                                    params: "repair"
+                                    params: "wood"
                                 },
                             ]
                         }
@@ -158,7 +194,8 @@ export default {
                 },
                 {
                     text: "Contact us",
-                    link: "/contact"
+                    link: "/contact",
+                    path : "Contact",
                 }
             ],
             drawer: false,
@@ -176,6 +213,11 @@ export default {
         },
         isActive(item) {
             return this.$route.path === item.link || this.$route.name === item.path
+        },
+        goToRoute(item){
+            if(item.link){
+                this.$router.push({name : item.path})
+            }
         }
     },
 }

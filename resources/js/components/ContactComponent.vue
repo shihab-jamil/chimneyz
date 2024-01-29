@@ -1,5 +1,5 @@
 <template>
-    <v-row class="pa-md-4 d-flex align-center" :class="{'pa-md-8' : !visibleActionButton}">
+    <v-row class="pa-4 d-flex align-center" :class="{'pa-md-8' : !visibleActionButton}">
         <v-form ref="form" class="v-col-12">
             <v-text-field
                 v-model="contact.name"

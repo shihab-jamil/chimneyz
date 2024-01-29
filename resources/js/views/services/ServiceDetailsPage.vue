@@ -5,7 +5,7 @@
             class="d-flex align-center justify-center"
             gradient="to bottom, rgba(0,0,0,.2), rgba(0,0,0,.9)"
         >
-            <v-card-title class="text-center text-h2 text-white font-weight-bold">About our Service</v-card-title>
+            <v-card-title class="text-center text-md-h2 text-h4 text-white font-weight-bold">About our Service</v-card-title>
         </v-img>
     </v-card>
     <component :is="generateComponent" />
