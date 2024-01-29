@@ -5,7 +5,7 @@
         </v-col>
         <v-col md="6" cols="12">
             <div class="flex flex-column pa-10">
-                <h1>Lets Talk About Chimney Caps</h1>
+                <h1>Lets Talk About Liners</h1>
                 <v-divider class="mb-4 w-100" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
                 <p class="text-justify">Chimney caps, which cover the top edge of your chimney (the chimney crown), are
                     one of the most important features of your chimney. They are also probably the most inexpensive

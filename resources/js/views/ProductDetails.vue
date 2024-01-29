@@ -7,6 +7,7 @@ import ChimneyCapsComponent from "../components/ChimneyCapsComponent.vue";
 import GasLogComponent from "../components/GasLogComponent.vue";
 import GasFireplaceInsertComponent from "../components/GasFireplaceInsertComponent.vue";
 import RepairComponent from "../components/RepairComponent.vue";
+import LinerComponent from "../components/LinerComponent.vue";
 import WoodBurningFireplaceInsertComponent from "../components/WoodBurningFireplaceInsertComponent.vue";
 export default {
     name: "ProductDetails",
@@ -15,6 +16,7 @@ export default {
         GasLogComponent,
         GasFireplaceInsertComponent,
         RepairComponent,
+        LinerComponent,
         WoodBurningFireplaceInsertComponent
     },
     props : ['type'],
