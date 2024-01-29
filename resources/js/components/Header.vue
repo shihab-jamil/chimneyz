@@ -79,6 +79,10 @@
                 @click="$router.push({name : 'Contact'})"
                 title="Contact"
             ></v-list-item>
+            <v-list-item
+                @click="$router.push({name : 'FAQ'})"
+                title="FAQ"
+            ></v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -191,6 +195,11 @@ export default {
                             ]
                         }
                     ]
+                },
+                {
+                    text: "FAQ",
+                    link: "/faq",
+                    path : "FAQ",
                 },
                 {
                     text: "Contact us",
