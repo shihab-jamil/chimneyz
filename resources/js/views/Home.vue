@@ -199,7 +199,7 @@ export default {
                     id: 6,
                     title: 'Chimney Repair Services',
                     show: false,
-                    image: "/images/service4.png",
+                    image: "/images/chimney_repair_service.png",
                     description: 'At Chimneyz, our expert team specializes in all aspects of chimney repair, offering unparalleled service and expertise to our community. With years of experience under our belt, we\'re committed to delivering top-quality solutions to every customer. From minor repairs to major restorations, our skilled professionals have the know-how to address any chimney issue with precision and care. Trust us to ensure your chimney is not only functioning perfectly but also safe for your home. Contact Chimneyz today to schedule your appointment and experience the difference with our seasoned team of chimney experts.'
                 },
                 {
