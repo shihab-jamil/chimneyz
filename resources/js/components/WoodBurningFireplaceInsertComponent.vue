@@ -143,22 +143,7 @@
             </div>
         </v-col>
     </v-row>
-    <v-row class="pa-md-16">
-        <v-col md="12" cols="12">
-            <h1 class="mb-5 text-center">Frequently Ask Question</h1>
-            <v-divider class="mb-4 w-33" color="green"
-                       style="border-top-width: 5px; opacity: 1; margin: 0 auto"></v-divider>
-            <v-expansion-panels>
-                <v-expansion-panel
-                    v-for="(item, index) in faqs"
-                    :key="index"
-                    :title="(index+1)+'. '+item.question"
-                    class="font-weight-bold"
-                    :text="item.answer"
-                ></v-expansion-panel>
-            </v-expansion-panels>
-        </v-col>
-    </v-row>
+
 </template>
 <script>
 export default {

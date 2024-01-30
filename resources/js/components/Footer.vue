@@ -6,7 +6,7 @@
     >
         <v-container>
             <v-row class="py-6 text-white">
-                <v-col md="4" cols="12" class="mb-4">
+                <v-col md="4" cols="12" class="mb-4 pl-md-0 pl-8">
                     <div class="text-h5 mb-2">Company</div>
                     <v-divider class="mb-4 w-50" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
                     <div class="subtitle-1">
@@ -14,16 +14,16 @@
                         Email: <a href="mailto:usachimneyz@gmail.com" class="white--text">usachimneyz@gmail.com</a>
                     </div>
                 </v-col>
-                <v-col md="4" cols="12" class="mb-4">
-                    <div class="text-h5 mb-2">Service Cities</div>
+                <v-col md="4" cols="12" class="mb-4 pl-md-0 pl-8">
+                    <div class="text-h5 mb-2">Cities</div>
                     <v-divider class="mb-4 w-50" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
                     <ul>
-                        <li class="subtitle-1" v-for="item in ['Seattle', 'Tacoma']" :key="item">{{ item }}</li>
+                        <li class="subtitle-1" v-for="item in ['Seattle/Tacoma', 'Oregon/WA', 'Ohio', 'California']" :key="item">{{ item }}</li>
                     </ul>
                 </v-col>
                 <v-col md="4" cols="12" class="mb-4">
-                    <div class="text-h5 mb-2">Follow Us</div>
-                    <v-divider class="mb-4 w-50" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
+                    <div class="text-h5 mb-2 ml-5 ">Follow Us</div>
+                    <v-divider class="mb-4 w-50 ml-5" color="green" style="border-top-width: 5px; opacity: 1;"></v-divider>
                     <v-row>
                         <v-col
                             cols="auto"
